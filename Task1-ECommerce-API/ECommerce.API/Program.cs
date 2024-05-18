@@ -1,5 +1,11 @@
+using ECommerce.Persistence;
+using ECommerce.Persistence.Contexts;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddPersistence();
+//builder.Services.AddDbContext<ECommerceDbContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("SQLite3")));
 // Add services to the container.
 
 builder.Services.AddControllers();
