@@ -1,11 +1,8 @@
 ﻿using AutoMapper;
+using ECommerce.Application.DTOs.Customer;
 using ECommerce.Application.DTOs.Product;
 using ECommerce.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace ECommerce.Infrastructure.AutoMapper
 {
@@ -18,6 +15,13 @@ namespace ECommerce.Infrastructure.AutoMapper
             CreateMap<ProductDTO, Product>();
             CreateMap<Product, ProductUpdateDTO>();
             CreateMap<Product, ProductRemoveDTO>();
+
+            //customer
+            CreateMap<Customer, CustomerDTO>();
+            CreateMap<CustomerDTO, Customer>();
+
+
+
         }
     }
 }

@@ -69,11 +69,16 @@ namespace ECommerce.Persistence.Repositories
             return query;
         }
 
-        public async  Task<bool> IsExists(Expression<Func<T, bool>> expression, bool isTracking)
+        public async Task<bool> IsExists(Expression<Func<T, bool>> expression, bool isTracking)
         {
             IQueryable<T> query = CheckTracking(isTracking);
             return await query.AnyAsync(expression);
         }
 
+        public async Task<T?> SingleOrDefaultAsync(Expression<Func<T, bool>> expression, bool isTracking)
+        {
+            IQueryable<T> query = CheckTracking(isTracking);
+            return await query.SingleOrDefaultAsync(expression);
+        }
     }
 }

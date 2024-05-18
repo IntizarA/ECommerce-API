@@ -15,5 +15,7 @@ namespace ECommerce.Application.Repositories
         Task<T?> GetByIdAsync(string id, bool isTracking);
         IQueryable<T?> Select(Expression<Func<T, bool>> expression, bool isTracking);
         Task<bool> IsExists(Expression<Func<T, bool>> expression, bool isTracking);
+        
+        Task<T?> SingleOrDefaultAsync(Expression<Func<T, bool>> expression, bool isTracking);
     }
 }

@@ -1,6 +1,8 @@
-﻿using ECommerce.Application.Repositories.Product;
+﻿using ECommerce.Application.Repositories.Customer;
+using ECommerce.Application.Repositories.Product;
 using ECommerce.Application.Services;
 using ECommerce.Persistence.Contexts;
+using ECommerce.Persistence.Repositories.Customer;
 using ECommerce.Persistence.Repositories.Product;
 using ECommerce.Persistence.Services;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +26,15 @@ namespace ECommerce.Persistence
             services.AddScoped<IProductWriteRepository, ProductWriteRepository>();
 
             services.AddScoped<IProductService, ProductService>();
+
+            //customer
+
+            services.AddScoped<ICustomerReadRepository, CustomerReadRepository>();
+            services.AddScoped<ICustomerWriteRepository, CustomerWriteRepository>();
+
+            services.AddScoped<ICustomerService,CustomerService>();
+            services.AddScoped<ITokenService,TokenService>();
+
         }
     }
 }
