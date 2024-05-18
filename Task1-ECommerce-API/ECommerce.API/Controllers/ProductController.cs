@@ -1,8 +1,11 @@
 ﻿using ECommerce.Application.DTOs.Product;
+using ECommerce.Application.Features.Commands.Product.Create;
 using ECommerce.Application.Repositories.Product;
 using ECommerce.Application.Services;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Net;
 
 namespace ECommerce.API.Controllers
@@ -11,19 +14,25 @@ namespace ECommerce.API.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        public readonly IProductService _productService;
+        private readonly IMediator _mediator;
 
-        public ProductController(IProductService productService)
+        public ProductController(IMediator mediator)
         {
-            _productService = productService;
+            _mediator = mediator;
         }
 
-
         [HttpPost("add")]
-        public async Task<IActionResult> AddProduct(ProductDTO product)
+        public async Task<IActionResult> AddProduct(CreateProductCommandRequest request)
         {
-            await _productService.AddAsync(product);
-            return StatusCode((int)HttpStatusCode.Created);
+            try
+            {
+                var response = await _mediator.Send(request);
+                return Ok(response);
+            }
+            catch (Exception exception)
+            {
+                return StatusCode(500, $"Unexpected error, please try again later! exception {exception.Message}");
+            }
         }
     }
 }
