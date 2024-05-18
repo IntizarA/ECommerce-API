@@ -2,6 +2,7 @@
 using ECommerce.Application.Features.Commands.Product.Create;
 using ECommerce.Application.Features.Commands.Product.Remove;
 using ECommerce.Application.Features.Commands.Product.Update;
+using ECommerce.Application.Features.Queries.Read;
 using ECommerce.Application.Repositories.Product;
 using ECommerce.Application.Services;
 using MediatR;
@@ -21,6 +22,20 @@ namespace ECommerce.API.Controllers
         public ProductController(IMediator mediator)
         {
             _mediator = mediator;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll([FromQuery] GetAllProductQueryRequest request)
+        {
+            try
+            {
+                var response = await _mediator.Send(request);
+                return Ok(response);
+            }
+            catch (Exception exception)
+            {
+                return StatusCode(500, $"Unexpected error, please try again later! exception {exception.Message}");
+            }
         }
 
         [HttpPost]
