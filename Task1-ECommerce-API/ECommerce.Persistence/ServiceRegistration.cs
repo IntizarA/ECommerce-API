@@ -1,6 +1,8 @@
 ﻿using ECommerce.Application.Repositories.Product;
+using ECommerce.Application.Services;
 using ECommerce.Persistence.Contexts;
 using ECommerce.Persistence.Repositories.Product;
+using ECommerce.Persistence.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -17,8 +19,11 @@ namespace ECommerce.Persistence
         {
             services.AddDbContext<ECommerceDbContext>(options => options.UseSqlite(Configuration.ConnectionString));
 
+            //product
             services.AddScoped<IProductReadRepository, ProductReadRepository>();
             services.AddScoped<IProductWriteRepository, ProductWriteRepository>();
+
+            services.AddScoped<IProductService, ProductService>();
         }
     }
 }
