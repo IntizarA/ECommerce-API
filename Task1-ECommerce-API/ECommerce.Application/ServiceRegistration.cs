@@ -1,4 +1,6 @@
 ﻿using ECommerce.Application.Features.Commands.Product.Create;
+using ECommerce.Application.Features.Commands.Product.Remove;
+using ECommerce.Application.Features.Commands.Product.Update;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -15,6 +17,8 @@ namespace ECommerce.Application
             services.AddMediatR(config =>
             {
                 config.RegisterServicesFromAssemblyContaining<CreateProductCommandHandler>();
+                config.RegisterServicesFromAssemblyContaining<UpdateProductCommandHandler>();
+                config.RegisterServicesFromAssemblyContaining<RemoveProductCommandHandler>();
 
             });
         }

@@ -1,13 +1,13 @@
-﻿using ECommerce.Domain.Entities;
+﻿using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ECommerce.Application.DTOs.Product
+namespace ECommerce.Application.Features.Commands.Product.Update
 {
-    public class ProductUpdateDTO
+    public class UpdateProductCommandRequest:IRequest<UpdateProductCommandResponse>
     {
         public string Id { get; set; }
         public string Name { get; set; }

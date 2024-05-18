@@ -63,7 +63,7 @@ namespace ECommerce.Persistence.Services
             return _mapper.Map<ProductDTO>(await _readRepository.GetByIdAsync(id, isTracking));
         }
 
-        public bool Remove(ProductDeleteDTO product)
+        public bool Remove(ProductRemoveDTO product)
         {
             throw new NotImplementedException();
         }
@@ -75,7 +75,7 @@ namespace ECommerce.Persistence.Services
             return result;
         }
 
-        public bool RemoveRange(List<ProductDeleteDTO> range)
+        public bool RemoveRange(List<ProductRemoveDTO> range)
         {
             throw new NotImplementedException();
         }
@@ -86,8 +86,15 @@ namespace ECommerce.Persistence.Services
             return _mapper.Map<List<ProductDTO?>>(_readRepository.Select(mappedExpression, isTracking));
         }
 
-        public bool Update(ProductUpdateDTO product)
+        public bool Update(ProductUpdateDTO productDTO)
         {
+            Product product=_mapper.Map<Product>(_readRepository.GetById(productDTO.Id,false));
+
+            product.Name = productDTO.Name;
+            product.Description = productDTO.Description;
+            product.Price = productDTO.Price;
+            product.Stock = productDTO.Stock;
+
             bool result = _writeRepository.Update(_mapper.Map<Product>(product));
             _writeRepository.Save();
             return result;

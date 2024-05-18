@@ -17,7 +17,7 @@ namespace ECommerce.Infrastructure.AutoMapper
             CreateMap<Product, ProductDTO>();
             CreateMap<ProductDTO, Product>();
             CreateMap<Product, ProductUpdateDTO>();
-            CreateMap<Product, ProductDeleteDTO>();
+            CreateMap<Product, ProductRemoveDTO>();
         }
     }
 }

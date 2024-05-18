@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ECommerce.Application.DTOs.Product
 {
-    public class ProductDeleteDTO
+    public class ProductRemoveDTO
     {
         public string Id { get; set; }
     }

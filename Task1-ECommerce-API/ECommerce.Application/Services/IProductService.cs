@@ -15,9 +15,9 @@ namespace ECommerce.Application.Services
         bool AddRange(List<ProductDTO> range);
         Task<bool> AddRangeAsync(List<ProductDTO> range);
         bool Update(ProductUpdateDTO product);
-        bool Remove(ProductDeleteDTO product);
+        bool Remove(ProductRemoveDTO product);
         bool RemoveById(string id);
-        bool RemoveRange(List<ProductDeleteDTO> range);
+        bool RemoveRange(List<ProductRemoveDTO> range);
 
         List<ProductDTO> GetAll(bool isTracking);
         ProductDTO? GetById(string id, bool isTracking);
