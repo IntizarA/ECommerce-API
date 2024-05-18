@@ -20,7 +20,7 @@ namespace ECommerce.Persistence.Contexts
         {
             modelBuilder.Entity<Customer>().HasMany(customer => customer.Orders).WithOne(order => order.Customer).HasForeignKey(customer => customer.CustomerId);
             modelBuilder.Entity<Order>().HasMany(order => order.OrderDetails).WithOne(orderDetail => orderDetail.Order).HasForeignKey(order => order.OrderId);
-            //modelBuilder.Entity<Product>().HasMany(product => product.OrderDetails).WithOne(orderDetail => orderDetail.Product).HasForeignKey(product => product.ProductId);
+            modelBuilder.Entity<Product>().HasMany(product => product.OrderDetails).WithOne(orderDetail => orderDetail.Product).HasForeignKey(product => product.ProductId);
             base.OnModelCreating(modelBuilder);
         }
 
