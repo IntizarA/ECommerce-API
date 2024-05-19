@@ -45,9 +45,9 @@ The ECommerce Web API project is designed following the Onion Architecture, whic
 
 Core/
 
-│ ├── Domain/ # Contains domain entities and business logic
+│ ├── Domain/ # Contains domain entities
 
-│ └── Application/ # Contains application services and DTOs
+│ └── Application/ # Contains application repositories, services and DTOs
 
 Infrastructure/
 
@@ -57,7 +57,7 @@ Infrastructure/
 
 Presentation/
 
-│ └── API/ # Contains API controllers and middleware
+│ └── API/ # Contains API controllers 
 
 
 
