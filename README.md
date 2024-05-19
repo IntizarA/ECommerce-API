@@ -2,7 +2,7 @@
 
 # <b><i>Task 1 ECommerce</i></b>
 
-This project is an ECommerce web application developed using .NET Core. It provides endpoints for managing products, customers, orders, and order details.
+This project is an ECommerce web application developed using .NET Core 6. It provides endpoints for managing products, customers, orders, and order details.
 
 ## Table of Contents
 
@@ -18,7 +18,7 @@ This project is an ECommerce web application developed using .NET Core. It provi
 
 ## Introduction
 
-The ECommerce Web API project is designed following the Onion Architecture, which emphasizes separation of concerns and dependency inversion. It offers a set of RESTful APIs for managing various aspects of an ECommerce system, including products, customers, and orders.
+The ECommerce Web API project is designed following the Onion Architecture, which emphasizes separation of concerns and dependency inversion. It helps for managing various aspects of an ECommerce system, including products, customers, and orders.
 
 ## Technologies Used
 
