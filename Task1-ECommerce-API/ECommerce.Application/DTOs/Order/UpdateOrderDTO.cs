@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace ECommerce.Application.DTOs.Order
 {
-    public class OrderDTO
+    public class UpdateOrderDTO
     {
-        public string CustomerId { get; set; }
+        public string Id { get; set; }
         public OrderStatus OrderStatus { get; set; }
         public List<OrderDetailDTO> OrderDetails { get; set; }
     }

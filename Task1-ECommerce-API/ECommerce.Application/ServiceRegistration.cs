@@ -1,8 +1,10 @@
 ﻿using ECommerce.Application.Features.Commands.Customer.Create;
+using ECommerce.Application.Features.Commands.Order.Create;
 using ECommerce.Application.Features.Commands.Product.Create;
 using ECommerce.Application.Features.Commands.Product.Remove;
 using ECommerce.Application.Features.Commands.Product.Update;
 using ECommerce.Application.Features.Queries.Customer.Login;
+using ECommerce.Application.Features.Queries.Customer.Read;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -26,6 +28,13 @@ namespace ECommerce.Application
                 //customer
                 config.RegisterServicesFromAssemblyContaining<CreateCustomerCommandHandler>();
                 config.RegisterServicesFromAssemblyContaining<LoginCustomerQueryHandler>();
+                config.RegisterServicesFromAssemblyContaining<GetAllCustomerQueryHandler>();
+
+                //order
+                config.RegisterServicesFromAssemblyContaining<CreateOrderCommandHandler>();
+
+                services.AddHttpContextAccessor();
+
             });
         }
     }

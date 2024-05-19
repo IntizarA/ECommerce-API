@@ -1,4 +1,6 @@
 ﻿using ECommerce.Application.DTOs.Order;
+using ECommerce.Application.Features.Commands.Order.Create;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
@@ -9,24 +11,27 @@ namespace ECommerce.API.Controllers
     [ApiController]
     public class OrderController : ControllerBase
     {
-        [HttpPost]
-        [Authorize]
-        public IActionResult PlaceOrder(OrderDTO order)
+        private readonly IMediator _mediator;
+
+        public OrderController(IMediator mediator)
         {
-            var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
-
-            var handler = new JwtSecurityTokenHandler();
-            var decodedToken = handler.ReadJwtToken(token);
-
-            var userIdClaim = decodedToken.Subject;
-
-            if (userIdClaim != null)
+            _mediator = mediator;
+        }
+        [HttpPost("authorized")]
+        [Authorize]
+        public async Task<IActionResult> PlaceOrder(CreateOrderCommandRequest request)
+        {
+            try
             {
-                var userId = userIdClaim;
-                return Ok($"User ID from token: {userId}");
+                var response = await _mediator.Send(request);
+                return Ok(response);
+            }
+            catch (Exception exception)
+            {
+                return StatusCode(500, $"Unexpected error, please try again later! exception {exception.Message}");
             }
 
-            return Ok(true);
         }
+
     }
 }

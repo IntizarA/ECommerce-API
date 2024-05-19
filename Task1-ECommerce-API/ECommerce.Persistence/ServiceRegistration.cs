@@ -37,9 +37,12 @@ namespace ECommerce.Persistence
             services.AddScoped<ICustomerWriteRepository, CustomerWriteRepository>();
 
             services.AddScoped<ICustomerService, CustomerService>();
+
             //order
             services.AddScoped<IOrderReadRepository, OrderReadRepository>();
             services.AddScoped<IOrderWriteRepository, OrderWriteRepository>();
+
+            services.AddScoped<IOrderService, OrderService>();
 
 
         }
