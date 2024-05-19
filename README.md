@@ -88,3 +88,6 @@ To test authorized methods using Postman, follow these steps:
 ## Validation
 
 Request validation is implemented using middleware with the MediatR pattern. Requests are validated before they reach the controller action. If validation fails, appropriate error messages are returned to the client.
+
+
+![db](https://github.com/IntizarA/Task1-ECommerce-API/assets/80961100/f3f10630-a2ea-45d2-8faf-5b99092e87dd)
