@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ECommerce.Application.DTOs.Customer;
+using ECommerce.Application.DTOs.Order;
 using ECommerce.Application.DTOs.Product;
 using ECommerce.Domain.Entities;
 using System.Linq.Expressions;
@@ -19,6 +20,10 @@ namespace ECommerce.Infrastructure.AutoMapper
             //customer
             CreateMap<Customer, CustomerDTO>();
             CreateMap<CustomerDTO, Customer>();
+
+            //order
+            CreateMap<Order, OrderDTO>();
+            CreateMap<OrderDTO, Order>();
 
 
 

@@ -15,7 +15,7 @@ namespace ECommerce.API.Controllers
         {
             _mediator = mediator;
         }
-        [HttpPost]
+        [HttpPost("registr")]
         public async Task<IActionResult> CreateCustomer(CreateCustomerCommandRequest request)
         {
             try
@@ -30,7 +30,7 @@ namespace ECommerce.API.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> LoginUserAsync([FromBody] LoginCustomerQueryRequest request)
+        public async Task<IActionResult> LoginUserAsync([FromBody] LoginCustomerQueryRequest request,CancellationToken cancellationToken)
         {
             try
             {

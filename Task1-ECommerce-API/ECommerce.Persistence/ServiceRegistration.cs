@@ -1,10 +1,14 @@
-﻿using ECommerce.Application.Repositories.Customer;
-using ECommerce.Application.Repositories.Product;
-using ECommerce.Application.Services;
+﻿using ECommerce.Application.Abstraction;
+using ECommerce.Application.Abstraction.Repositories.Customer;
+using ECommerce.Application.Abstraction.Repositories.Order;
+using ECommerce.Application.Abstraction.Repositories.Product;
+using ECommerce.Application.Abstraction.Services;
 using ECommerce.Persistence.Contexts;
 using ECommerce.Persistence.Repositories.Customer;
+using ECommerce.Persistence.Repositories.Order;
 using ECommerce.Persistence.Repositories.Product;
 using ECommerce.Persistence.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -32,8 +36,11 @@ namespace ECommerce.Persistence
             services.AddScoped<ICustomerReadRepository, CustomerReadRepository>();
             services.AddScoped<ICustomerWriteRepository, CustomerWriteRepository>();
 
-            services.AddScoped<ICustomerService,CustomerService>();
-            services.AddScoped<ITokenService,TokenService>();
+            services.AddScoped<ICustomerService, CustomerService>();
+            //order
+            services.AddScoped<IOrderReadRepository, OrderReadRepository>();
+            services.AddScoped<IOrderWriteRepository, OrderWriteRepository>();
+
 
         }
     }

@@ -1,5 +1,5 @@
-﻿using ECommerce.Application.DTOs.Product;
-using ECommerce.Application.Services;
+﻿using ECommerce.Application.Abstraction.Services;
+using ECommerce.Application.DTOs.Product;
 using MediatR;
 using Microsoft.Extensions.Logging;
 

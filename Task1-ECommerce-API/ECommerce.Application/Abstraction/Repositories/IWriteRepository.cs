@@ -1,6 +1,6 @@
 ﻿using ECommerce.Domain.Entities.Common;
 
-namespace ECommerce.Application.Repositories
+namespace ECommerce.Application.Abstraction.Repositories
 {
     public interface IWriteRepository<T> where T : BaseEntity
     {

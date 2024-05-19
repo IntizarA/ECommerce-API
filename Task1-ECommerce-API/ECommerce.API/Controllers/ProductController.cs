@@ -3,8 +3,6 @@ using ECommerce.Application.Features.Commands.Product.Create;
 using ECommerce.Application.Features.Commands.Product.Remove;
 using ECommerce.Application.Features.Commands.Product.Update;
 using ECommerce.Application.Features.Queries.Product.Read;
-using ECommerce.Application.Repositories.Product;
-using ECommerce.Application.Services;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

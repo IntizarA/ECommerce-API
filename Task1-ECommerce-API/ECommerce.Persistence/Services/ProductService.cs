@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
+using ECommerce.Application.Abstraction.Repositories.Product;
+using ECommerce.Application.Abstraction.Services;
 using ECommerce.Application.DTOs.Product;
-using ECommerce.Application.Repositories.Product;
-using ECommerce.Application.Services;
 using ECommerce.Domain.Entities;
 using System.Linq.Expressions;
 

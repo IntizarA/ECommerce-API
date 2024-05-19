@@ -6,14 +6,14 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ECommerce.Application.Services
+namespace ECommerce.Application.Abstraction.Services
 {
     public interface ICustomerService
     {
-        bool Add(CustomerDTO customer);
-        Task<bool> AddAsync(CustomerDTO customer);
-        bool AddRange(List<CustomerDTO> range);
-        Task<bool> AddRangeAsync(List<CustomerDTO> range);
+        bool Add(CreateCustomerDTO customer);
+        Task<bool> AddAsync(CreateCustomerDTO customer);
+        bool AddRange(List<CreateCustomerDTO> range);
+        Task<bool> AddRangeAsync(List<CreateCustomerDTO> range);
 
         bool Remove(CustomerRemoveDTO customer);
         bool RemoveById(string id);
@@ -22,7 +22,7 @@ namespace ECommerce.Application.Services
         List<CustomerDTO> GetAll(bool isTracking);
         CustomerDTO? GetById(string id, bool isTracking);
         Task<CustomerDTO?> GetByIdAsync(string id, bool isTracking);
-        List<CustomerDTO?> Select(Expression<Func<CustomerDTO, bool>> expression, bool isTracking);
+        List<CustomerDTO?> Select(Expression<Func<CreateCustomerDTO, bool>> expression, bool isTracking);
 
         Task<CustomerDTO?> SingleOrDefaultAsync(string username, bool isTracking);
         Task<bool> IsUserExists(string email);

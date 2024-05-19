@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ECommerce.Application.Repositories
+namespace ECommerce.Application.Abstraction.Repositories
 {
     public interface IReadRepository<T> where T : BaseEntity
     {
@@ -15,7 +15,7 @@ namespace ECommerce.Application.Repositories
         Task<T?> GetByIdAsync(string id, bool isTracking);
         IQueryable<T?> Select(Expression<Func<T, bool>> expression, bool isTracking);
         Task<bool> IsExists(Expression<Func<T, bool>> expression, bool isTracking);
-        
+
         Task<T?> SingleOrDefaultAsync(Expression<Func<T, bool>> expression, bool isTracking);
     }
 }

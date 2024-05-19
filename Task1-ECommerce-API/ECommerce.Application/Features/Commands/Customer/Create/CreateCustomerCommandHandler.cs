@@ -1,5 +1,5 @@
-﻿using ECommerce.Application.DTOs.Customer;
-using ECommerce.Application.Services;
+﻿using ECommerce.Application.Abstraction.Services;
+using ECommerce.Application.DTOs.Customer;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
@@ -40,7 +40,7 @@ namespace ECommerce.Application.Features.Commands.Customer.Create
 
                 string hashedPassword = BCrypt.Net.BCrypt.HashPassword(request.Password);
 
-                CustomerDTO customerDTO = new()
+                CreateCustomerDTO customerDTO = new()
                 {
                     UserName = request.UserName,
                     Email = request.Email,

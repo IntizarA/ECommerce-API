@@ -1,4 +1,4 @@
-﻿using ECommerce.Application.Services;
+﻿using ECommerce.Application.Abstraction.Services;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using System;

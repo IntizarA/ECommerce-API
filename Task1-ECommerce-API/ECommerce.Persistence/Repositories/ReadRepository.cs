@@ -1,4 +1,4 @@
-﻿using ECommerce.Application.Repositories;
+﻿using ECommerce.Application.Abstraction.Repositories;
 using ECommerce.Domain.Entities.Common;
 using ECommerce.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
+using ECommerce.Application.Abstraction.Repositories.Customer;
+using ECommerce.Application.Abstraction.Services;
 using ECommerce.Application.DTOs.Customer;
-using ECommerce.Application.Repositories.Customer;
-using ECommerce.Application.Services;
 using ECommerce.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -24,28 +24,28 @@ namespace ECommerce.Persistence.Services
             _mapper = mapper;
         }
 
-        public bool Add(CustomerDTO customer)
+        public bool Add(CreateCustomerDTO customer)
         {
             bool result = _writeRepository.Add(_mapper.Map<Customer>(customer));
             _writeRepository.Save();
             return result;
         }
 
-        public async Task<bool> AddAsync(CustomerDTO customer)
+        public async Task<bool> AddAsync(CreateCustomerDTO customer)
         {
             bool result = await _writeRepository.AddAsync(_mapper.Map<Customer>(customer));
             await _writeRepository.SaveAsync();
             return result;
         }
 
-        public bool AddRange(List<CustomerDTO> range)
+        public bool AddRange(List<CreateCustomerDTO> range)
         {
             bool result = _writeRepository.AddRange(_mapper.Map<List<Customer>>(range));
             _writeRepository.Save();
             return result;
         }
 
-        public async Task<bool> AddRangeAsync(List<CustomerDTO> range)
+        public async Task<bool> AddRangeAsync(List<CreateCustomerDTO> range)
         {
             bool result = await _writeRepository.AddRangeAsync(_mapper.Map<List<Customer>>(range));
             _writeRepository.Save();
@@ -84,7 +84,7 @@ namespace ECommerce.Persistence.Services
             throw new NotImplementedException();
         }
 
-        public List<CustomerDTO?> Select(Expression<Func<CustomerDTO, bool>> expression, bool isTracking)
+        public List<CustomerDTO?> Select(Expression<Func<CreateCustomerDTO, bool>> expression, bool isTracking)
         {
             var mappedExpression = _mapper.Map<Expression<Func<Customer, bool>>>(expression);
             return _mapper.Map<List<CustomerDTO?>>(_readRepository.Select(mappedExpression, isTracking));

@@ -1,4 +1,4 @@
-﻿using ECommerce.Application.Repositories.Product;
+﻿using ECommerce.Application.Abstraction.Repositories.Product;
 using ECommerce.Persistence.Contexts;
 using System;
 using System.Collections.Generic;

@@ -1,4 +1,4 @@
-﻿using ECommerce.Application.Repositories.Customer;
+﻿using ECommerce.Application.Abstraction.Repositories.Customer;
 using ECommerce.Persistence.Contexts;
 using System;
 using System.Collections.Generic;

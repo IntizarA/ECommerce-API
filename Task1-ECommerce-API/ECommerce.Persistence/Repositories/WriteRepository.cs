@@ -1,5 +1,4 @@
-﻿using ECommerce.Application.Repositories;
-using ECommerce.Domain.Entities.Common;
+﻿using ECommerce.Domain.Entities.Common;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -8,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ECommerce.Persistence.Contexts;
+using ECommerce.Application.Abstraction.Repositories;
 
 namespace ECommerce.Persistence.Repositories
 {
