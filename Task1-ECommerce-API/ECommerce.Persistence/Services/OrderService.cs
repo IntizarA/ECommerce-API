@@ -4,8 +4,10 @@ using ECommerce.Application.Abstraction.Repositories.Order;
 using ECommerce.Application.Abstraction.Services;
 using ECommerce.Application.DTOs.Customer;
 using ECommerce.Application.DTOs.Order;
+using ECommerce.Application.DTOs.OrderDetail;
 using ECommerce.Application.DTOs.Product;
 using ECommerce.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -88,10 +90,9 @@ namespace ECommerce.Persistence.Services
             throw new NotImplementedException();
         }
 
-        public List<OrderDTO?> Select(Expression<Func<OrderDTO, bool>> expression, bool isTracking)
+        public List<OrderDTO?> Select(string id, bool isTracking)
         {
-            var mappedExpression = _mapper.Map<Expression<Func<Order, bool>>>(expression);
-            return _mapper.Map<List<OrderDTO?>>(_readRepository.Select(mappedExpression, isTracking));
+            return _mapper.Map<List<OrderDTO?>>(_readRepository.Select(x => x.CustomerId == Guid.Parse(id), isTracking).Include(x=>x.OrderDetails));
         }
 
         public bool Update(UpdateOrderDTO orderDTO)
@@ -107,6 +108,16 @@ namespace ECommerce.Persistence.Services
             bool result = _writeRepository.Update(_mapper.Map<Order>(order));
             _writeRepository.Save();
             return result;
+        }
+
+        public float GetPrice(List<OrderDetailDTO> orderDetails)
+        {
+            float total = 0;
+            foreach (var orderDetail in orderDetails)
+            {
+                total += orderDetail.UnitPrice*orderDetail.Quantity;
+            }
+            return total;
         }
     }
 }

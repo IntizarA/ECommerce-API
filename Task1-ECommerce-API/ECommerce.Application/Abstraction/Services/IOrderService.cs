@@ -1,4 +1,5 @@
 ﻿using ECommerce.Application.DTOs.Order;
+using ECommerce.Application.DTOs.OrderDetail;
 using ECommerce.Application.DTOs.Product;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace ECommerce.Application.Abstraction.Services
         List<OrderDTO> GetAll(bool isTracking);
         OrderDTO? GetById(string id, bool isTracking);
         Task<OrderDTO?> GetByIdAsync(string id, bool isTracking);
-        List<OrderDTO?> Select(Expression<Func<OrderDTO, bool>> expression, bool isTracking);
+        List<OrderDTO?> Select(string id, bool isTracking);
+        float GetPrice(List<OrderDetailDTO> orderDetails);
     }
 }

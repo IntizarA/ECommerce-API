@@ -1,5 +1,6 @@
 ﻿using ECommerce.Application.DTOs.Order;
 using ECommerce.Application.Features.Commands.Order.Create;
+using ECommerce.Application.Features.Queries.Order.Read;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -31,6 +32,21 @@ namespace ECommerce.API.Controllers
                 return StatusCode(500, $"Unexpected error, please try again later! exception {exception.Message}");
             }
 
+        }
+
+        [HttpGet("authorized")]
+        [Authorize]
+        public async Task<IActionResult> GetOrders(GetAllOrderQueryRequest request)
+        {
+            try
+            {
+                var response = await _mediator.Send(request);
+                return Ok(response);
+            }
+            catch (Exception exception)
+            {
+                return StatusCode(500, $"Unexpected error, please try again later! exception {exception.Message}");
+            }
         }
 
     }

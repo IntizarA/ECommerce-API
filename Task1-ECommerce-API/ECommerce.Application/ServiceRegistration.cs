@@ -5,6 +5,7 @@ using ECommerce.Application.Features.Commands.Product.Remove;
 using ECommerce.Application.Features.Commands.Product.Update;
 using ECommerce.Application.Features.Queries.Customer.Login;
 using ECommerce.Application.Features.Queries.Customer.Read;
+using ECommerce.Application.Features.Queries.Order.Read;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,7 @@ namespace ECommerce.Application
 
                 //order
                 config.RegisterServicesFromAssemblyContaining<CreateOrderCommandHandler>();
+                config.RegisterServicesFromAssemblyContaining<GetAllOrderQueryHandler>();
 
                 services.AddHttpContextAccessor();
 
